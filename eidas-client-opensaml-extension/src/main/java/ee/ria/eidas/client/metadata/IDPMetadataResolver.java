@@ -161,7 +161,7 @@ public class IDPMetadataResolver {
             for (XMLObject mainXmlObject : entityDescriptor.getExtensions().getOrderedChildren()) {
                 if (mainXmlObject.hasChildren()) {
                     for (XMLObject xmlObject : mainXmlObject.getOrderedChildren()) {
-                        if (((XSAnyImpl) xmlObject).getTextContent() != null) {
+                        if (xmlObject instanceof XSAnyImpl && ((XSAnyImpl) xmlObject).getTextContent() != null) {
                             supportedCountries.add(((XSAnyImpl) xmlObject).getTextContent());
                         }
                     }
